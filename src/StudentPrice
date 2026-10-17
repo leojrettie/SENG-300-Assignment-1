@@ -1,0 +1,5 @@
+class StudentPrice implements FeeCalculator{
+    getPrice(Trip userTrip){
+        return 0;
+    }
+}

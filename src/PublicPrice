@@ -1,0 +1,5 @@
+class PublicPrice implements FeeCalculator{
+    getPrice(Trip userTrip){
+        return 0;
+    }
+}
