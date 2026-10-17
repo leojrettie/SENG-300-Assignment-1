@@ -1,5 +1,7 @@
+package src;
+
 class MemberPrice implements FeeCalculator{
-    getPrice(Trip userTrip){
+    public int getPrice(){
         return 0;
     }
 }
