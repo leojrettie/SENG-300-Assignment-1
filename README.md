@@ -4,6 +4,6 @@
 |Name|UCID|Email|
 |-|-|-|
 |Nico MacDonald|10195401|nico.macdonald@ucalgary.ca|
-
+|Sachit Pegallapati|30242305|sachit.pegallapati@ucalgary.ca|
 ## Run Instructions
 TODO
