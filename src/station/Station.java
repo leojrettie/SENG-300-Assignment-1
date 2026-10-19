@@ -25,6 +25,8 @@ public class Station {
             }
        } 
 
+       private setTheme
+
 
 
        // GETTERS & SETTERS

@@ -17,6 +17,14 @@ public class Testing {
         System.out.println(country.getLang());
     }
     
+    @Test
+    public void themeFromFile(){
+        Theme newTheme = new Theme("Downtown");
+        assertEquals("#128219", newTheme.getColourBg1());
+        assertEquals("resources/zoneLogos/ZoneLogo.jpg", newTheme.getZoneLogo());
+
+    }
+
 
 }
 
