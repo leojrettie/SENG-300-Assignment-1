@@ -3,6 +3,7 @@ package User;
 import fee_calculator.FeeCalculator;
 import paymentProcessor.paymentProcessor;
 import UserTripHandler.UserTripHandler;
+import notification_service.*;
 
 public class UserApp extends User {
     // Constructor to initialize the UserApp with FeeCalculator, PaymentProcessor, and UserTripHandler
@@ -11,8 +12,9 @@ public class UserApp extends User {
     }
 
     @Override
-    protected void showMessage(String message) {
-        // Implementation to display the message to the user
-        System.out.println("[UserApp] " + message);
+    protected void notifyUser(String message) {
+        // Implementation to notify the user through the app or email
+        AppNotificationService.AppNotificationService.notifyUser(message);
+        EmailNotificationService.EmailNotificationService.notifyUser(message);
     }
 }
