@@ -8,17 +8,17 @@ public class Theme{
 
     private static final String CONFIG_FILE = "resources/zoneCustomization";
 
-    private String colourBg1; //hex strings
-    private String colourBg2;   
-    private String colourText;
-    private String ZoneLogo; //Links to image file with the zone logo
+    private final String colourBg1; //hex strings
+    private final String colourBg2;   
+    private final String colourText;
+    private final String zoneLogo; //Links to image file with the zone logo
 
     public Theme(String zone){
         String values[] = findZone(zone);
         this.colourBg1 = values[1];
         this.colourBg2 = values[2];
         this.colourText = values[3];
-        this.ZoneLogo = "resources/zoneLogos/" + values[4]; //Zone images should be located in resources/zoneLogos/(image file name)
+        this.zoneLogo = "resources/zoneLogos/" + values[4]; //Zone images should be located in resources/zoneLogos/(image file name)
     }
 
     private static String[] findZone(String zone){
@@ -44,6 +44,6 @@ public class Theme{
     public String getColourBg1() {return colourBg1;}
     public String getColourBg2() {return colourBg2;}
     public String getColourText() {return colourText;}
-    public String getZoneLogo() {return ZoneLogo;}
+    public String getZoneLogo() {return zoneLogo;}
 
 }
