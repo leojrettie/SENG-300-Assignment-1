@@ -1,13 +1,18 @@
 package User;
-import paymentProcessor.PaymentProcessor;
 
-public class UserApp {
-    public Trip
+import fee_calculator.FeeCalculator;
+import paymentProcessor.paymentProcessor;
+import UserTripHandler.UserTripHandler;
 
-    startTrip(FeeCalculator feeCalculator, PaymentProcessor paymentProcessor) {
-        int price = feeCalculator.getPrice();
-        paymentProcessor.processPayment(price);
+public class UserApp extends User {
+    // Constructor to initialize the UserApp with FeeCalculator, PaymentProcessor, and UserTripHandler
+    public UserApp(FeeCalculator feeCalculator, paymentProcessor paymentProcessor, UserTripHandler userTripHandler) {
+        super(feeCalculator, paymentProcessor, userTripHandler);
     }
 
-
+    @Override
+    protected void showMessage(String message) {
+        // Implementation to display the message to the user
+        System.out.println("[UserApp] " + message);
+    }
 }
