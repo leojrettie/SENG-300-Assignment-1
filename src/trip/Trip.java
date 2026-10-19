@@ -2,7 +2,6 @@ package trip;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.Scanner;
 import java.util.UUID;
 
 public class Trip {
@@ -55,20 +54,15 @@ public class Trip {
         if (this.endTime == null){
             this.endTime = LocalDateTime.now();
         }
-        //TODO:end trip charge card behavior
     }
+    public long getDurrationMinutes() {
+        long durrationMinutes;
+        try {
+            durrationMinutes = Duration.between(startTime, endTime).toMinutes();
+        } catch (NullPointerException _) {
+            throw new IllegalStateException("Cannot get duration of a trip that hasn't ended");
+        }
 
-    public static void main(){
-        User u = new User();
-        Vehicle v = new Vehicle();
-        Trip trip = new Trip(u, v);
-
-        System.out.println(trip.toString());
-        trip.endTrip();
-
-        Scanner scanner = new Scanner(System.in);
-        scanner.nextLine();
-        System.out.println(trip.toString());
-
+        return 0;
     }
 }
