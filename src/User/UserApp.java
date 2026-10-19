@@ -11,10 +11,20 @@ public class UserApp extends User {
         super(feeCalculator, paymentProcessor, userTripHandler);
     }
 
-    @Override
-    protected void notifyUser(String message) {
-        // Implementation to notify the user through the app or email
-        AppNotificationService.AppNotificationService.notifyUser(message);
-        EmailNotificationService.EmailNotificationService.notifyUser(message);
+    public Trip startTrip(User user, Vehicle vehicle) {
+        // Start a new trip for the user
+        Trip newTrip = new Trip(user, vehicle);
+        user.activeTrip = newTrip; // Set the active trip for the user
+        return newTrip;
+    }
+
+    public void endTrip() {
+        // End the active trip for the user
+        if (this.activeTrip != null) {
+            this.activeTrip.endTrip();
+            this.activeTrip = null; // Clear the active trip after ending it
+        } else {
+            showMessage("No active trip to end.");
+        }
     }
 }

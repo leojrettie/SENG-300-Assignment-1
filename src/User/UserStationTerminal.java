@@ -10,9 +10,20 @@ public class UserStationTerminal extends User {
         super(feeCalculator, paymentProcessor, userTripHandler);
     }
 
-    @Override
-    protected void showMessage(String message) {
-        // Implementation to display the message to the user
-        System.out.println("[UserStationTerminal] " + message);
+    public Trip startTrip(User user, Vehicle vehicle) {
+        // Start a new trip for the user
+        Trip newTrip = new Trip(user, vehicle);
+        user.activeTrip = newTrip; // Set the active trip for the user
+        return newTrip;
+    }
+
+    public Trip endTrip() {
+        // End the active trip for the user
+        if (this.activeTrip != null) {
+            this.activeTrip.endTrip();
+            this.activeTrip = null; // Clear the active trip after ending it
+        } else {
+            showMessage("No active trip to end.");
+        }
     }
 }
