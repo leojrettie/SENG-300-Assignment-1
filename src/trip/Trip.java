@@ -33,15 +33,13 @@ public class Trip {
         }
         final String s = String.format("""
         Trip ID: %s\n
-        User ID: %s\n
         Vehicle: %s\n
         Start Time: %s\n
         End Time: %s\n
         Duration:%d\n
         """,
         this.tripID, 
-        this.user.getID(), 
-        this.vehicle.getID(), 
+        this.vehicle.toString(), 
         this.startTime,
         endString,
         durrationMinutes
@@ -55,14 +53,13 @@ public class Trip {
             this.endTime = LocalDateTime.now();
         }
     }
-    public long getDurrationMinutes() {
+    public int getDurrationMinutes() {
         long durrationMinutes;
         try {
             durrationMinutes = Duration.between(startTime, endTime).toMinutes();
         } catch (NullPointerException _) {
             throw new IllegalStateException("Cannot get duration of a trip that hasn't ended");
         }
-
-        return 0;
+        return (int) durrationMinutes;
     }
 }
