@@ -8,13 +8,13 @@ public class Testing {
 
     @Test
     public void createStations(){
-        Station downtown = new Station("S1", 2, "Downtown");
-        Station country = new Station("S2", 4, "outside", "fr");
+        Station downtown = new Station(1, 2, "Downtown");
+        Station country = new Station(2, 4, "outside", Language.EN);
 
-        System.out.println(downtown + " | " + country);
-
-        assertEquals(2, downtown.getCapacity());
-        assertEquals(4, country.getCapacity());
+        assertEquals(2, downtown.getTotalCapacity());
+        assertEquals(4, country.getTotalCapacity());
+        assertEquals("English", downtown.getLang());
+        System.out.println(country.getLang());
     }
     
 
