@@ -1,14 +1,24 @@
 package trip;
+//package control_room.*;
 
 import fee_calculator.*;
 import vehicle.*;
 
 public class UserTripHandler {
 
-    public UserTripHandler(){
+    /*
+     * Constructor method for UserTripHandler.
+     * @returns new UserTripHandler object.
+     */
+    public UserTripHandler() {
     }
 
-    public Trip startTrip(){
+    /*
+     * Creates a new trip object after asking the user what vehicle they'd like
+     * @returns a trip object
+     */
+    public Trip startTrip() {
+        
         //ask user what vehicle they want
         return new Trip();
     }
@@ -19,7 +29,7 @@ public class UserTripHandler {
     }
 
     public void reportIssue(Trip trip) {
-        // TODO Auto-generated method stub
+        ControlRoom.removeVehicle();//trip.vehicle);
         throw new UnsupportedOperationException("Unimplemented method 'reportIssue'");
     }
 }
