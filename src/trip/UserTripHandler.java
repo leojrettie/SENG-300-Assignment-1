@@ -1,22 +1,25 @@
 package trip;
 
-import fee_calculator.FeeCalculator;
+import fee_calculator.*;
+import vehicle.*;
 
 public class UserTripHandler {
-    private final User user;
 
-    public UserTripHandler(User u){
-        this.user = u;
+    public UserTripHandler(){
     }
 
-    public Trip startTrip(Vehicle v){
-        User user = this.user;
-        return new Trip(user, v);
+    public Trip startTrip(){
+        //ask user what vehicle they want
+        return new Trip();
     }
 
     public void endTrip(Trip trip){
+        // Check if vehicle 
         trip.endTrip();
-        int Fee = User.fee_calculator.getPrice(trip);
-        //user.paymentProcessor.chargeUser(user.feeCalculator.getPrice(trip));
+    }
+
+    public void reportIssue(Trip trip) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'reportIssue'");
     }
 }
