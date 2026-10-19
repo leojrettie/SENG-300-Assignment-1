@@ -17,4 +17,9 @@ public class UserTripHandler {
         // Check if vehicle 
         trip.endTrip();
     }
+
+    public void reportIssue(Trip trip) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'reportIssue'");
+    }
 }

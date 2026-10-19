@@ -67,4 +67,8 @@ public class Trip {
         }
         return (int) durrationMinutes;
     }
+
+    public String getTripId() {
+        return this.tripID;
+    }
 }
