@@ -3,11 +3,13 @@ package trip;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.UUID;
-//import vehicle.*;
+
+import User.User;
+import station.Vehicle;
 
 public class Trip {
     private final String tripID;
-    //TODO: private final Vehicle vehicle;
+    private final Vehicle vehicle;
     private final LocalDateTime startTime;
     private LocalDateTime endTime;
 
@@ -18,10 +20,10 @@ public class Trip {
     * @param vehicle: The vehicle used durring the trip
     * @return a new Trip object with a start time of Now
     */
-    public Trip(){ //, Vehicle vehicle) {
+    protected Trip(User user, Vehicle vehicle) {
         this.tripID = UUID.randomUUID().toString();
         this.startTime = LocalDateTime.now();
-        //TODO this.vehicle = vehicle;
+        this.vehicle = vehicle;
     }
 
     /*
@@ -89,7 +91,10 @@ public class Trip {
      * Getter method of the UUID for the trip object.
      * Returns the UUID as a string 
      */
-    public String getTripId() {
-        return this.tripID;
-    }
+    public String getTripId() {return this.tripID;}
+     /*
+     * Getter method of the vehicle for the trip object.
+     * Returns the vehicle as a Vehicle object 
+     */
+    public Vehicle getTripVehicle() {return this.vehicle;}
 }
