@@ -1,8 +1,9 @@
 package User;
 
 import fee_calculator.FeeCalculator;
-import paymentProcessor.PaymentProcessor;
-import UserTripHandler.UserTripHandler;
+import payment_processor.PaymentProcessor;
+import trip.*;
+import notification_service.*;
 
 public class UserStationTerminal extends User {
     // Constructor to initialize the UserStationTerminal with FeeCalculator, PaymentProcessor, and UserTripHandler
@@ -17,13 +18,13 @@ public class UserStationTerminal extends User {
         return newTrip;
     }
 
-    public Trip endTrip() {
+    public void endTrip() {
         // End the active trip for the user
         if (this.activeTrip != null) {
             this.activeTrip.endTrip();
             this.activeTrip = null; // Clear the active trip after ending it
         } else {
-            showMessage("No active trip to end.");
+            notification_service.NotificationService.NotifyUser(1); // Notify the user that there is no active trip to end
         }
     }
 }
