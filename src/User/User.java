@@ -1,7 +1,6 @@
 package User;
 
 import fee_calculator.FeeCalculator;
-import java.util.Objects;
 import payment_processor.PaymentProcessor;
 import trip.Trip;
 import trip.UserTripHandler;
@@ -15,8 +14,10 @@ public abstract class User {
     
     // Constructor to initialize the User with FeeCalculator, PaymentProcessor, and UserTripHandler
     protected User (FeeCalculator feeCalculator, PaymentProcessor paymentProcessor, UserTripHandler userTripHandler) {
-        this.feeCalculator = Objects.requireNonNull(feeCalculator, "FeeCalculator cannot be null");
-        this.paymentProcessor = Objects.requireNonNull(paymentProcessor, "PaymentProcessor cannot be null");
-        this.userTripHandler = Objects.requireNonNull(userTripHandler, "UserTripHandler cannot be null");
+        this.feeCalculator = feeCalculator;
+        this.paymentProcessor = paymentProcessor;
+        this.userTripHandler = userTripHandler;
     }
+    
+    
 }

@@ -13,7 +13,7 @@ public class UserApp extends User {
 
     public Trip startTrip(User user, Vehicle vehicle) {
         // Start a new trip for the user
-        Trip newTrip = new Trip (user,vehicle);
+        Trip newTrip = new trip.Trip(user, vehicle);
         user.activeTrip = newTrip; // Set the active trip for the user
         return newTrip;
     }
@@ -27,4 +27,6 @@ public class UserApp extends User {
             notification_service.NotificationService.NotifyUser(1); // Notify the user that there is no active trip to end
         }
     }
+
+    
 }

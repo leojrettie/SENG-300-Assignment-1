@@ -13,7 +13,7 @@ public class UserStationTerminal extends User {
 
     public Trip startTrip(User user, Vehicle vehicle) {
         // Start a new trip for the user
-        Trip newTrip = new Trip(user, vehicle);
+        Trip newTrip = new trip.Trip(user, vehicle);
         user.activeTrip = newTrip; // Set the active trip for the user
         return newTrip;
     }
