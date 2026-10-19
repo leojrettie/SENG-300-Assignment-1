@@ -1,7 +1,7 @@
 package User;
 
 import fee_calculator.FeeCalculator;
-import paymentProcessor.paymentProcessor;
+import payment_processor.*;
 import trip.*;
 import notification_service.*;
 
@@ -26,7 +26,5 @@ public class UserApp extends User {
         } else {
             notification_service.NotificationService.NotifyUser(1); // Notify the user that there is no active trip to end
         }
-    }
-
-    
+    } 
 }

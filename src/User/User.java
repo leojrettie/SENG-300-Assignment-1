@@ -22,6 +22,8 @@ public abstract class User {
         this.userTripHandler = Objects.requireNonNull(userTripHandler, "UserTripHandler cannot be null");
     }
 
+    
+
     /**
      * Function that returns a list of available vehicles able to be booked to start a trip
      * @param station The station the user is currently at
