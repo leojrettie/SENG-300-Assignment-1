@@ -1,7 +1,7 @@
 package payment_processor;
 
 public class PaymentPhoneWalletAdapter implements PaymentProcessor{
-  private int current_deposit_amount;
+  private final int current_deposit_amount = 10;
   private PhonePaymentHandler handler;
   @Override
   public void ChargeDeposit(){
