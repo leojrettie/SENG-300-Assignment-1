@@ -3,19 +3,24 @@ package trip;
 import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.UUID;
+//import vehicle.*;
 
 public class Trip {
     private final String tripID;
-    private final User user;
-    private final Vehicle vehicle;
+    //TODO: private final Vehicle vehicle;
     private final LocalDateTime startTime;
     private LocalDateTime endTime;
 
-    public Trip(User user, Vehicle vehicle) {
+
+    /*
+    * Trip is a constructor class that creates a new trip to store data like, vehicle and start/end times
+    * @param vehicle: The vehicle used durring the trip
+    */
+
+    public Trip(){ //, Vehicle vehicle) {
         this.tripID = UUID.randomUUID().toString();
         this.startTime = LocalDateTime.now();
-        this.vehicle = vehicle;
-        this.user = user;
+        //TODO this.vehicle = vehicle;
     }
 
     @Override
@@ -39,7 +44,7 @@ public class Trip {
         Duration:%d\n
         """,
         this.tripID, 
-        this.vehicle.toString(), 
+        "Vehicle Class Not Implemented Yet", //TODO: this.vehicle.toString(), 
         this.startTime,
         endString,
         durrationMinutes

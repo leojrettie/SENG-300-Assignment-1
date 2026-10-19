@@ -2,7 +2,7 @@ package User;
 
 import fee_calculator.FeeCalculator;
 import paymentProcessor.paymentProcessor;
-import UserTripHandler.UserTripHandler;
+import trip.*;
 import notification_service.*;
 
 public class UserApp extends User {

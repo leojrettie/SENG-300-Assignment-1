@@ -3,8 +3,7 @@ package User;
 import java.util.Objects;
 import paymentProcessor.paymentProcessor;
 import fee_calculator.FeeCalculator;
-import UserTripHandler.UserTripHandler;
-import Trip.Trip;
+import trip.*;
 
 public abstract class User {
     // Create fields for FeeCalculator, PaymentProcessor, and UserTripHandler
@@ -49,7 +48,7 @@ public abstract class User {
         // Only end the trip if the vehicle is locked
 
         userTripHandler.endTrip(trip);
-        double fare = feeCalculator.getPrice();
+        double fare = feeCalculator.getPrice(trip);
         paymentProcessor.chargeFare(fare);
         activeTrip = null; // Reset active trip after ending it
         showMessage(String.format("Trip ended. Fare: $%.2f", fare));
