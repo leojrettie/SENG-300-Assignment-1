@@ -52,12 +52,12 @@ public class UserTripHandler {
     }
 
     public void endTrip(Trip trip){
-        // Check if vehicle 
+        // TODO: Check if vehicle is locked?
         trip.endTrip();
     }
 
     public void reportIssue(Trip trip) {
-        ControlRoom.removeVehicle(trip.getTripVehicle());
+        ControlRoom.getInstance().removeVehicle(trip.getTripVehicle());
         throw new UnsupportedOperationException("Unimplemented method 'reportIssue'");
     }
 }
