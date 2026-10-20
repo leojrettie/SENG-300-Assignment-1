@@ -1,6 +1,11 @@
 import java.util.List;
 
 import station.*;  
+import User.*;
+import fee_calculator.FeeCalculator;
+import fee_calculator.StudentPrice;
+import trip.*;
+import payment_processor.*;
 
 /*
  * WHAT THIS PROGRAM IS
@@ -90,6 +95,11 @@ public class Main {
         printHeading("7. Final state");
         showStation(downtown);
         showStation(campus);
+
+
+        UserApp u = new UserApp(new StudentPrice(), new PaymentCreditCardAdapter());
+        u.startTrip();
+        System.out.println(u.activeTrip.toString());
     }
 
     
