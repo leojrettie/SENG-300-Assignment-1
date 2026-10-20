@@ -13,15 +13,11 @@ public class ControlRoom{
     }
 
     public static synchronized ControlRoom getInstance() {
-        // Create a station: id 1, 3 docking points, in the "Downtown" zone.
-        // (The zone name decides its colours, which are read from a settings file.)
-        Station downtown = new Station(1, 3, "Downtown");
+        if (instance == null){
+            Station downtown = new Station(1, 3, "Downtown");
+            Station campus = new Station(2, 2, "Campus", Language.FR);
 
-        // A second station: id 2, 2 docking points, "Campus" zone, screens in French.
-        Station campus = new Station(2, 2, "Campus", Language.FR);
-
-        if (instance == null) {
-            ControlRoom instance = new ControlRoom(List.of(downtown, campus));
+            instance = new ControlRoom(List.of(downtown, campus));
         }
         return instance;
     }
