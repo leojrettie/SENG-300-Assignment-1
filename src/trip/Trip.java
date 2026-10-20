@@ -48,18 +48,17 @@ public class Trip {
         }
         final String s = String.format("""
         Trip ID: %s\n
-        Vehicle: %s\n
+        Vehicle ID: %s\n
         Start Time: %s\n
         End Time: %s\n
         Duration:%d\n
         """,
         this.tripID, 
-        "Vehicle Class Not Implemented Yet", //TODO: this.vehicle.toString(), 
+        this.getTripVehicle().getId(),
         this.startTime,
         endString,
         durrationMinutes
         );
-
         return s;
     }
     
