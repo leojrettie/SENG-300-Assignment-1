@@ -7,6 +7,9 @@ import java.util.UUID;
 import User.User;
 import station.Vehicle;
 
+/* Trip.java is a class thats responsible for individual trips a user might take. It stores information like the user, the vehicle, and the start and end times.
+ * @author Nico MacDonald
+ */
 public class Trip {
     private final String tripID;
     private final Vehicle vehicle;
@@ -18,7 +21,7 @@ public class Trip {
     * Trip is a constructor class that creates a new trip to store data like, vehicle and start/end times
     * 
     * @param vehicle: The vehicle used durring the trip
-    * @return a new Trip object with a start time of Now
+    * @return a new Trip object with a start time of now
     */
     protected Trip(User user, Vehicle vehicle) {
         this.tripID = UUID.randomUUID().toString();
@@ -75,7 +78,7 @@ public class Trip {
     /*
      * Returns the length of a trip that has ended in minutes
      * @throws IllegalStateException: Cannot get duration of a trip that hasn't ended
-     * @return
+     * @return interger number of minutes
      */
     public int getDurrationMinutes() {
         long durrationMinutes;
@@ -89,12 +92,12 @@ public class Trip {
 
     /*
      * Getter method of the UUID for the trip object.
-     * Returns the UUID as a string 
+     * @return the UUID as a string 
      */
     public String getTripId() {return this.tripID;}
      /*
      * Getter method of the vehicle for the trip object.
-     * Returns the vehicle as a Vehicle object 
+     * @return the vehicle as a Vehicle object 
      */
     public Vehicle getTripVehicle() {return this.vehicle;}
 }

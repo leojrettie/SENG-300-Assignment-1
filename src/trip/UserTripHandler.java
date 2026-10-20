@@ -1,21 +1,19 @@
 package trip;
-import java.io.IOException;
 import java.util.List;
 import java.util.Scanner;
-
-import javax.swing.text.html.ListView;
-
 import User.User;
-import fee_calculator.*;
 import station.Vehicle;
 import station.ControlRoom;
 
+/* UserTripHandler.java is a class thats responsible for managing trip objects, starting and ending trips, updating relevant values, and reporting issues durring a trip.
+ * @author Nico MacDonald
+ */
 public class UserTripHandler {
     private final User user; 
 
     /*
      * Constructor method for UserTripHandler.
-     * @returns new UserTripHandler object.
+     * @return new UserTripHandler object.
      */
     public UserTripHandler(User u) {
         this.user = u;
@@ -48,9 +46,8 @@ public class UserTripHandler {
 
 
     /*
-     * Creates a new trip object after asking the user what vehicle they'd like
-     * @throws IOException("Must enter a valid number")
-     * @returns a trip object
+     * Creates a new trip object after asking the user what vehicle they'd like.
+     * @return a Trip object
      */
     public Trip startTrip() {
         Trip trip = new Trip(this.user, getUserVehicle());
@@ -60,8 +57,7 @@ public class UserTripHandler {
 
     /*
      * Creates a new trip object after asking the user what vehicle they'd like
-
-     * @returns a trip object
+     * @param a Trip to end
      */
     public void endTrip(Trip trip){
         trip.getTripVehicle().setInUse(false);
