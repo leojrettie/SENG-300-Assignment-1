@@ -1,4 +1,7 @@
 package notification_service;
 public interface NotificationService{
-  public void NotifyUser(Integer NotificationType);
+  public static void NotifyUser(Integer NotificationType) {
+    // TODO Auto-generated method stub
+    throw new UnsupportedOperationException("Unimplemented method 'NotifyUser'");
+}
 }

@@ -1,8 +1,9 @@
 package User;
 
 import fee_calculator.FeeCalculator;
-import paymentProcessor.PaymentProcessor;
+import payment_processor.*;
 import trip.*;
+import notification_service.*;
 
 public class UserStationTerminal extends User {
     // Constructor to initialize the UserStationTerminal with FeeCalculator, PaymentProcessor, and UserTripHandler
