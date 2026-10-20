@@ -95,11 +95,6 @@ public class Main {
         printHeading("7. Final state");
         showStation(downtown);
         showStation(campus);
-
-
-        UserApp u = new UserApp(new StudentPrice(), new PaymentCreditCardAdapter());
-        u.startTrip();
-        System.out.println(u.activeTrip.toString());
     }
 
     
