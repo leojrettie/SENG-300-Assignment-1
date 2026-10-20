@@ -10,4 +10,5 @@
 |Leo Rettie|30333025|leo.rettie@ucalgary.ca|
 
 ## Run Instructions
-TODO
+Requirements: Java JDK 17 or newer
+

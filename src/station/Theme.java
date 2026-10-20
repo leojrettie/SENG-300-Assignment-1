@@ -6,7 +6,7 @@ import java.io.IOException;
 
 public class Theme{
 
-    private static final String CONFIG_FILE = "resources/zoneCustomization";
+    private static final String CONFIG_FILE = "";//Enter Config file location with theme customization
 
     private final String colourBg1; //hex strings
     private final String colourBg2;   
@@ -22,7 +22,10 @@ public class Theme{
     }
 
     private static String[] findZone(String zone){
+        String values[] = {"Zonename","#FFFFFF","#FFFF31","#000000","ZoneImage"};
+        return values;
         //Tries to read the file and if it able to, cuts up the lines into pieces once it finds a match for the zone
+        /* 
         try (BufferedReader br = new BufferedReader(new FileReader(CONFIG_FILE))){
             String line;
             while ((line = br.readLine()) != null){
@@ -38,6 +41,7 @@ public class Theme{
             throw new IllegalStateException("Could not read" + CONFIG_FILE, e);
         }
         throw new IllegalArgumentException("Unkown file");
+        */
     }
 
     //Getters
