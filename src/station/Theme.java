@@ -1,12 +1,20 @@
 package station;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.util.Map;
 
 public class Theme{
 
-    private static final String CONFIG_FILE = "";//Enter Config file location with theme customization
+    private static final Map<String, String[]> ZONES = Map.of(
+        "downtown",   new String[]{"#128219", "#128251", "#82127B", "ZoneLogo.jpg"},
+        "campus",     new String[]{"#385C43", "#385C55", "#38515C", "ZoneLogo.jpg"},
+        "airport",    new String[]{"#00948A", "#005494", "#000A94", "ZoneLogo.jpg"},
+        "residential",new String[]{"#000F94", "#3B0094", "#850094", "ZoneLogo.jpg"},
+        "industrial", new String[]{"#940039", "#941100", "#945B00", "ZoneLogo.jpg"}
+    );
+    
+    private static final String[] DEFAULT_THEME = {"#FFFFFF", "#FFFF31", "#000000", "ZoneLogo.jpg"};
+
+    private static final String LOGO_DIR = "resources/zoneLogos/";
 
     private final String colourBg1; //hex strings
     private final String colourBg2;   
@@ -14,34 +22,11 @@ public class Theme{
     private final String zoneLogo; //Links to image file with the zone logo
 
     public Theme(String zone){
-        String values[] = findZone(zone);
-        this.colourBg1 = values[1];
-        this.colourBg2 = values[2];
-        this.colourText = values[3];
-        this.zoneLogo = "resources/zoneLogos/" + values[4]; //Zone images should be located in resources/zoneLogos/(image file name)
-    }
-
-    private static String[] findZone(String zone){
-        String values[] = {"Zonename","#FFFFFF","#FFFF31","#000000","ZoneImage"};
-        return values;
-        //Tries to read the file and if it able to, cuts up the lines into pieces once it finds a match for the zone
-        /* 
-        try (BufferedReader br = new BufferedReader(new FileReader(CONFIG_FILE))){
-            String line;
-            while ((line = br.readLine()) != null){
-                String[] parts = line.split(",");
-                if (parts.length == 5 && parts[0].trim().equalsIgnoreCase(zone)) {
-                    for (int i = 0; i < parts.length; i++) {
-                        parts[i] = parts[i].trim();
-                    }
-                    return parts;
-                }
-            }
-        } catch (IOException e) {
-            throw new IllegalStateException("Could not read" + CONFIG_FILE, e);
-        }
-        throw new IllegalArgumentException("Unkown file");
-        */
+        String[] v = ZONES.getOrDefault(zone.trim().toLowerCase(), DEFAULT_THEME);
+        this.colourBg1 = v[0];
+        this.colourBg2 = v[1];
+        this.colourText = v[2];
+        this.zoneLogo = LOGO_DIR + v[3]; 
     }
 
     //Getters
