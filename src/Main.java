@@ -16,15 +16,12 @@ public class Main {
 
         // ===== SETUP: build the little world =====
 
-        // Create a station: id 1, 3 docking points, in the "Downtown" zone.
-        // (The zone name decides its colours, which are read from a settings file.)
-        Station downtown = new Station(1, 3, "Downtown");
-
-        // A second station: id 2, 2 docking points, "Campus" zone, screens in French.
-        Station campus = new Station(2, 2, "Campus", Language.FR);
-
         // The control room needs to know which stations it watches.
-        ControlRoom control = new ControlRoom(List.of(downtown, campus));
+        ControlRoom control = ControlRoom.getInstance();
+
+        Station downtown = control.getStations().get(0);
+        Station campus = control.getStations().get(1);
+
 
         // Create three vehicles. Each gets a name (id) so we can tell them apart.
         // A pedal bike has no battery, so it needs only a name.

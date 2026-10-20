@@ -1,5 +1,7 @@
 package User;
 
+import java.io.IOException;
+
 import fee_calculator.FeeCalculator;
 import payment_processor.PaymentProcessor;
 import station.Vehicle;
@@ -13,7 +15,7 @@ public class UserApp extends User {
 
     public Trip startTrip(User user, Vehicle vehicle) {
         // Start a new trip for the user
-        Trip newTrip = new Trip ();
+        Trip newTrip = userTripHandler.startTrip();
         user.activeTrip = newTrip; // Set the active trip for the user
         return newTrip;
     }
@@ -21,7 +23,7 @@ public class UserApp extends User {
     public void endTrip() {
         // End the active trip for the user
         if (this.activeTrip != null) {
-            this.activeTrip.endTrip();
+            this.userTripHandler.endTrip(this.activeTrip);
             this.activeTrip = null; // Clear the active trip after ending it
         } else {
             notification_service.NotificationService.NotifyUser(1); // Notify the user that there is no active trip to end

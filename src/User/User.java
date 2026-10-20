@@ -12,7 +12,7 @@ public abstract class User {
     // Create fields for FeeCalculator, PaymentProcessor, and UserTripHandler
     private final FeeCalculator feeCalculator;
     private final PaymentProcessor paymentProcessor;
-    private final UserTripHandler userTripHandler;
+    protected final UserTripHandler userTripHandler;
     protected Trip activeTrip;        // Field to hold the active trip for the user, null if no active trip
     
     // Constructor to initialize the User with FeeCalculator, PaymentProcessor, and UserTripHandler
