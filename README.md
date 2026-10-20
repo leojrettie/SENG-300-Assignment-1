@@ -8,6 +8,7 @@
 |Tyrone De jesus|30248724|tyrone.dejesus@ucalgary.ca|
 |Stya Indriliunas|30256090|stya.indriliunas@ucalgary.ca|
 |Leo Rettie|30333025|leo.rettie@ucalgary.ca|
+|Ncomo Kenyata|30091606|ncomo.kenyata@ucalgary.ca|
 
 ## Run Instructions
 Requirements: Java JDK 17 or newer
