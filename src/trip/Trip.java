@@ -11,7 +11,7 @@ import station.Vehicle;
  * @author Nico MacDonald
  */
 public class Trip {
-    private final String tripID;
+    private final String tripId;
     private final Vehicle vehicle;
     private final LocalDateTime startTime;
     private LocalDateTime endTime;
@@ -24,7 +24,7 @@ public class Trip {
     * @return a new Trip object with a start time of now
     */
     protected Trip(User user, Vehicle vehicle) {
-        this.tripID = UUID.randomUUID().toString();
+        this.tripId = UUID.randomUUID().toString();
         this.startTime = LocalDateTime.now();
         this.vehicle = vehicle;
     }
@@ -53,7 +53,7 @@ public class Trip {
         End Time: %s\n
         Duration:%d\n
         """,
-        this.tripID, 
+        this.tripId, 
         this.getTripVehicle().getId(),
         this.startTime,
         endString,
@@ -93,8 +93,9 @@ public class Trip {
      * Getter method of the UUID for the trip object.
      * @return the UUID as a string 
      */
-    public String getTripId() {return this.tripID;}
-     /*
+    public String getTripId() {return this.tripId;}
+     
+    /*
      * Getter method of the vehicle for the trip object.
      * @return the vehicle as a Vehicle object 
      */

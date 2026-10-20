@@ -10,14 +10,6 @@ import station.*;
 public class UserTripHandler {
     private final User user; 
 
-    /*
-     * Constructor method for UserTripHandler.
-     * @return new UserTripHandler object.
-     */
-    public UserTripHandler(User u) {
-        this.user = u;
-    }
-
     private Station getUserStation(){
         Station station;
         List<Station> stationsList = ControlRoom.getInstance().getStations();
@@ -68,6 +60,13 @@ public class UserTripHandler {
         return v;
     }
 
+    /*
+     * Constructor method for UserTripHandler.
+     * @return new UserTripHandler object.
+     */
+    public UserTripHandler(User u) {
+        this.user = u;
+    }
 
     /*
      * Creates a new trip object after asking the user what vehicle they'd like.
@@ -88,8 +87,11 @@ public class UserTripHandler {
         trip.endTrip();
     }
 
+    /* 
+     * Reports and issue with a vehicle to the control center
+     * @param Trip the trip the issue occured on
+     */
     public void reportIssue(Trip trip) {
-        endTrip(trip);
         ControlRoom.getInstance().removeVehicle(trip.getTripVehicle());
     }
 }
