@@ -9,17 +9,19 @@ public class ControlRoom{
 
     
     private ControlRoom(List<Station> stations){
-        this.stations = new ArrayList<>(stations);
+        ControlRoom.stations = new ArrayList<>(stations);
     }
 
     public static synchronized ControlRoom getInstance() {
+        // Create a station: id 1, 3 docking points, in the "Downtown" zone.
+        // (The zone name decides its colours, which are read from a settings file.)
+        Station downtown = new Station(1, 3, "Downtown");
+
+        // A second station: id 2, 2 docking points, "Campus" zone, screens in French.
+        Station campus = new Station(2, 2, "Campus", Language.FR);
+
         if (instance == null) {
-            stations.add(new Station(1, 10, "Central"));
-            stations.add(new Station(2, 8, "West"));
-            stations.add(new Station(3, 15, "Downtown"));
-            stations.add(new Station(4, 4, "South"));
-            stations.add(new Station(5, 12, "Stadium"));
-            instance = new ControlRoom(stations);
+            ControlRoom instance = new ControlRoom(List.of(downtown, campus));
         }
         return instance;
     }
