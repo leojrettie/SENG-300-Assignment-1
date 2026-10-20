@@ -21,7 +21,7 @@ public class UserTripHandler {
         this.user = u;
     }
 
-    private Vehicle getUserVehicle() throws IOException{ 
+    private Vehicle getUserVehicle() { 
         Vehicle v;
         List<Vehicle> VehicleList = this.user.availableVehicles(null); //TODO: choose a station
         System.out.println("Please choose one of the following vehicles:");
@@ -30,14 +30,19 @@ public class UserTripHandler {
         }
         Scanner s = new Scanner(System.in);
         String input = s.nextLine();
-        try {
-            if (input == null || input.isEmpty()){
-                throw new Exception();
+        while (true) {
+            input = s.nextLine();
+            try {
+                if (input == null || input.isEmpty()){
+                    throw new Exception();
+                }
+                v = VehicleList.get(Integer.parseInt(input));
+                break;
+            } catch (Exception e) {
+                System.out.println("Please enter a valid number: ");
             }
-            v = VehicleList.get(Integer.parseInt(input));
-        } catch (Exception e) {
-            throw new IOException("Must enter a valid numer");
         }
+        
         return v;
     }
 
@@ -47,17 +52,24 @@ public class UserTripHandler {
      * @throws IOException("Must enter a valid number")
      * @returns a trip object
      */
-    public Trip startTrip() throws IOException {
-        return new Trip(this.user, getUserVehicle());
+    public Trip startTrip() {
+        Trip trip = new Trip(this.user, getUserVehicle());
+        trip.getTripVehicle().setInUse(true);
+        return trip;
     }
 
+    /*
+     * Creates a new trip object after asking the user what vehicle they'd like
+
+     * @returns a trip object
+     */
     public void endTrip(Trip trip){
-        // TODO: Check if vehicle is locked?
+        trip.getTripVehicle().setInUse(false);
         trip.endTrip();
     }
 
     public void reportIssue(Trip trip) {
+        endTrip(trip);
         ControlRoom.getInstance().removeVehicle(trip.getTripVehicle());
-        throw new UnsupportedOperationException("Unimplemented method 'reportIssue'");
     }
 }
