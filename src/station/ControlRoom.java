@@ -4,9 +4,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ControlRoom{
-    private final List<Station> stations;
+    private static List<Station> stations;
+    private static ControlRoom instance;
 
-    public ControlRoom(List<Station> stations){this.stations = new ArrayList<>(stations);}
+    
+    private ControlRoom(List<Station> stations){
+        this.stations = new ArrayList<>(stations);
+    }
+
+    public static synchronized ControlRoom getInstance() {
+        if (instance == null) {
+            stations.add(new Station(1, 10, "Central"));
+            stations.add(new Station(2, 8, "West"));
+            stations.add(new Station(3, 15, "Downtown"));
+            stations.add(new Station(4, 4, "South"));
+            stations.add(new Station(5, 12, "Stadium"));
+            instance = new ControlRoom(stations);
+        }
+        return instance;
+    }
 
     //Moves a docked vehicle to another station
     public void moveVehicle(Vehicle vehicle, Station destination) {
