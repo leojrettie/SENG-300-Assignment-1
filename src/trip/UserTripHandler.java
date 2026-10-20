@@ -23,11 +23,11 @@ public class UserTripHandler {
         List<Station> stationsList = ControlRoom.getInstance().getStations();
 
         System.out.println("Please choose one of the following stations:");
-        for (int i=0; i <= stationsList.size(); i++) {
-            System.out.printf("%d/t%s", i, stationsList.get(i).getId());
+        for (int i=0; i < stationsList.size(); i++) {
+            System.out.printf("%d\t%s\n", i, stationsList.get(i).getZone());
         }
         Scanner s = new Scanner(System.in);
-        String input = s.nextLine();
+        String input;
         while (true) {
             input = s.nextLine();
             try {
@@ -47,11 +47,11 @@ public class UserTripHandler {
         Vehicle v;
         List<Vehicle> VehicleList = this.user.availableVehicles(getUserStation());
         System.out.println("Please choose one of the following vehicles:");
-        for (int i=0; i <= VehicleList.size(); i++) {
-            System.out.printf("%d/t%s", i, VehicleList.get(i).getClass());
+        for (int i=0; i < VehicleList.size(); i++) {
+            System.out.printf("%d\t%s\n", i, VehicleList.get(i).getId());
         }
         Scanner s = new Scanner(System.in);
-        String input = s.nextLine();
+        String input;
         while (true) {
             input = s.nextLine();
             try {

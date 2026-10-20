@@ -7,14 +7,14 @@ import trip.*;
 
 public class UserStationTerminal extends User {
     // Constructor to initialize the UserStationTerminal with FeeCalculator, PaymentProcessor, and UserTripHandler
-    public UserStationTerminal(FeeCalculator feeCalculator, PaymentProcessor paymentProcessor, UserTripHandler userTripHandler) {
-        super(feeCalculator, paymentProcessor, userTripHandler);
+    public UserStationTerminal(FeeCalculator feeCalculator, PaymentProcessor paymentProcessor) {
+        super(feeCalculator, paymentProcessor);
     }
 
-    public Trip startTrip(User user, Vehicle vehicle) {
+    public Trip startTrip() {
         // Start a new trip for the user
         Trip newTrip = userTripHandler.startTrip();
-        user.activeTrip = newTrip; // Set the active trip for the user
+        this.activeTrip = newTrip; // Set the active trip for the user
         return newTrip;
     }
 
