@@ -1,7 +1,8 @@
 package User;
 
 import fee_calculator.FeeCalculator;
-import paymentProcessor.PaymentProcessor;
+import payment_processor.*;
+import station.Vehicle;
 import trip.*;
 
 public class UserStationTerminal extends User {
@@ -12,7 +13,7 @@ public class UserStationTerminal extends User {
 
     public Trip startTrip(User user, Vehicle vehicle) {
         // Start a new trip for the user
-        Trip newTrip = new trip.Trip(user, vehicle);
+        Trip newTrip = new trip.Trip();
         user.activeTrip = newTrip; // Set the active trip for the user
         return newTrip;
     }

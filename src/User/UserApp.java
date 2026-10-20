@@ -1,19 +1,19 @@
 package User;
 
 import fee_calculator.FeeCalculator;
-import payment_processor.*;
+import payment_processor.PaymentProcessor;
+import station.Vehicle;
 import trip.*;
-import notification_service.*;
 
 public class UserApp extends User {
     // Constructor to initialize the UserApp with FeeCalculator, PaymentProcessor, and UserTripHandler
-    public UserApp(FeeCalculator feeCalculator, paymentProcessor paymentProcessor, UserTripHandler userTripHandler) {
+    public UserApp(FeeCalculator feeCalculator, PaymentProcessor paymentProcessor, UserTripHandler userTripHandler) {
         super(feeCalculator, paymentProcessor, userTripHandler);
     }
 
     public Trip startTrip(User user, Vehicle vehicle) {
         // Start a new trip for the user
-        Trip newTrip = new Trip (user,vehicle);
+        Trip newTrip = new Trip ();
         user.activeTrip = newTrip; // Set the active trip for the user
         return newTrip;
     }
