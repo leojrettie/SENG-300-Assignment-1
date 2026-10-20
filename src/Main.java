@@ -1,6 +1,11 @@
 import java.util.List;
 
 import station.*;  
+import User.*;
+import fee_calculator.FeeCalculator;
+import fee_calculator.StudentPrice;
+import trip.*;
+import payment_processor.*;
 
 /*
  * WHAT THIS PROGRAM IS
